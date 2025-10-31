@@ -7,6 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.2.6] - 2025-10-31
+
+### Added
+- Fixed logic on matrix_normalization = "none" to skip gaussian mixture model threshold calculation which is skipped anyway and can stall on sparce datasets that dont have clusters which stabilize quickly.
+
 ## [1.2.5] - 2025-10-28
 
 ### Added
