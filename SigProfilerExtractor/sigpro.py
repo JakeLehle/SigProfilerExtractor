@@ -809,13 +809,14 @@ def sigProfilerExtractor(
         )  # this list is going to store the dataframes of different similirieties as items
         minimum_stabilities = []
 
-        # get the cutoff for normatization to handle the hypermutators
+        # get the cutoff for normatization to handle the hypermutators and quickly sets sentinel value to -1 for matrix_normalization = "none" which will be ignored later on in subroutines.py
 
-        normalization_cutoff = sub.get_normalization_cutoff(
-            genomes, manual_cutoff=100 * genomes.shape[0]
-        )
+        if execution_parameters["matrix_normalization"] == "none":
+            normalization_cutoff = None
+        else:
+            normalization_cutoff = sub.get_normalization_cutoff(genomes, manual_cutoff=100*genomes.shape[0])
+            
         execution_parameters["normalization_cutoff"] = normalization_cutoff
-
         # pass the seed values to inner funtions:
         execution_parameters["seeds"] = seed
 
