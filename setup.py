@@ -8,7 +8,7 @@ import subprocess
 if os.path.exists("dist"):
     shutil.rmtree("dist")
 
-VERSION = "1.2.5"
+VERSION = "1.2.6"
 
 
 with open("README.md") as f:
